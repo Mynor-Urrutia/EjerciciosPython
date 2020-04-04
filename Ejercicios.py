@@ -1,81 +1,134 @@
-#Leer una secuencia de números y sumar solo los pares mostrando el resultado del proceso.
-print("Ejercicio #1")
-def producto():
-    primerNumero = int(input("Escribe un número: "))
-    segundoNumero = int(input("Escribe otro numero: "))
+print("Ejercicio #1 - Leer un numero y mostrarlo por la salida estándar si dicho número es o no es par")
+def ejercicio1():
+    numero=0
+    numero=float(input("Ingrese un numero: "))
+    if numero %2==0:
+        print("El numero ", numero, " es un numero par")
+    else:
+        print("El numero ", numero, " es un numero inpar")
+ejercicio1()
 
-    producto = int(0)
+#-----------------------------------------------------------------------------------------------------------------------
 
-    while segundoNumero !=0:
-        producto = producto + primerNumero
-        segundoNumero = segundoNumero -1
+print("Ejercicio #2 - Leer 2 números y mostrar el producto de ellos")
+def ejercicio2():
+    primernumero=int(input("Ingrese un numero: "))
+    segundonumero=int(input("Ingrese un numero: "))
+    producto=int(0)
+    while segundonumero !=0:
+        producto=producto+primernumero
+        segundonumero=segundonumero-1
+    print("El producto es de: ", producto)
+ejercicio2()
 
-    print("El producto de la suma es de los datos ingresados es: " + str(producto))
-producto()
+#-----------------------------------------------------------------------------------------------------------------------
 
-print("Ejericio #2")
-def productoraro():
-    num1=1
-    num2=1
-    i = ord('d')
-    while not i == 102:
-        num2 = int(input("Ingrese un numero"))
-        i = ord(input("Presione f para salir"))
-        print(num2)
-        num1 = num1 * num2
-    print(num1)
-productoraro()
+print("Ejercicio #3 - Leer 2 números y determinar el mayor de ellos. ")
+def ejercicio3():
+    numero1=int(input("Ingrese un numero: "))
+    numero2=int(input("Ingrese el siguiente numero: "))
 
-print("Ejercicio #3")
-def nmayor():
-    numero_mayor =0
-    k=1
-    contador = int(input("Escriba la cantidad de numeros que desea comparar: "))
-    while k<=contador:
-        numeros = float(input("Digitar el numero: "))
-        if numeros>numero_mayor:
-            numero_mayor=numeros
+    if numero1 == numero2:
+        print("Ambos numeros son iguales")
+    else:
+        if numero1>numero2:
+            print("El numero mayor es: ", numero1)
         else:
-            numero_mayor=numero_mayor
-        k=k+1
-    print("El numero mayor es: ",str(numero_mayor))
-nmayor()
-print("Ejercicio #4")
-def fibonacci():
-    aux, fib, init= 1,0,1
+            print("El numero mayor es: ", numero2)
 
-    limite=int(input("Ingrese un numero entero positivo para la serie de Fibonacci: "))
+ejercicio3()
 
-    if limite >0:
-        print("El resultado es: ")
-        while init <=limite:
-            print("[{0}]".format(fib), end="")
-            aux += fib
-            fib =aux -fib
-            init +=1
-            print()
-fibonacci()
-print("Ejercicio #6")
-def factorial():
-    from math import factorial
-    nfactorial=int(input("Ingrese un numero entero posisitivo: "))
-    print(factorial(nfactorial))
-factorial()
+#-----------------------------------------------------------------------------------------------------------------------
 
-print("Ejercicio #7")
-def secuencia():
-    primos = [2]
-    nmax = 30
-    for x in range(2, nmax):
-        for i in range(2, x):
-            if x%i != 0:
-                continue
+print("Ejercicio #4 - Leer 3 numeros y determinar el mayor de ellos.")
+def ejercicio4():
+    num1=int(input("Ingrese un numero"))
+    num2=int(input("Ingrese otro numero"))
+    num3=int(input("Ingrese otro numero"))
+
+    if num1==num2 & num1==num3:
+        print("Todos los numeros ingresados son iguales")
+    else:
+        if num1>num2 & num1>num3:
+            print("El numero mayor es: ", num1)
+        else:
+            if num2>num1 & num2>num3 or (num3<=num2):
+                print("El numero mayor es: ", num2)
             else:
-                break
+                print("el numero mayor es: ", num3)
+ejercicio4()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+print("Ejercicio #5 - Leer un numero y mostrar una tabla de multiplicar")
+
+def ejercicio5():
+    factor1=int(input("Ingrese el numero a multiplicar: "))
+    factor2=int(input("Ingrese las veces que quiere multiplicar el numero anterior: "))
+
+    for i in range(1,factor2+1):
+        print(str(i)+" * "+str(factor1)+" = "+str(i*factor1))
+ejercicio5()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+print("Ejercicio #6 - Leer una secuencia de 30 números y mostrar la suma y el producto de ellos")
+
+def ejercicio6():
+    contador=30
+    sumatotal=0
+    producto=0
+    productototal=0
+
+    while contador != 0:
+        numero = int(input("Ingrese un numero: "))
+        sumatotal=sumatotal+numero
+        productototal=productototal*numero
+        contador=contador-1
+    print("La suma de los digitos es de: ", sumatotal, "y su producto es: ", productototal)
+ejercicio6()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+print("Ejericicio #7 - Leer una secuencia de números, hasta que se introduce un número negativo y mostrar la suma de dichos números. ")
+def ejercicio7():
+    cantidadcontador=int(input("Ingrese la cantidad de digitos que va a ingresar"))
+    sumaTotal=0
+    while cantidadcontador != 0:
+        numeros=int(input("Ingrese los numeros: "))
+        if numeros <= 0 :
+            cantidadcontador = cantidadcontador - cantidadcontador
         else:
-            print ('%d es primo'%x)
-            primos.append(x)
-    F = open('numerosprimos.txt', 'w')
-    for data in primos:
-        F.write('%d\n'%data)
-secuencia()
+            sumaTotal = sumaTotal + numeros
+            cantidadcontador = cantidadcontador - 1
+    print("La suma total de los numero ingresados es de: ", sumaTotal)
+ejercicio7()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+print("Ejericicio #8 - Leer dos números y realizar el producto mediante sumas. ")
+
+def ejercicio8():
+    primernumero = int(input("Ingrese un numero: "))
+    segundonumero = int(input("Ingrese un numero: "))
+    producto = int(0)
+    while segundonumero != 0:
+        producto = producto + primernumero
+        segundonumero = segundonumero - 1
+    print("El producto es de: ", producto)
+ejercicio8()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+print("Ejercicio #9 - Leer dos números y realizar la división mediante restas mostrando el cociente y el resto. ")
+
+def ejercicio9():
+    divisor=int(print("Ingrese el dividendo: "))
+    dividendo=int(print("Ingrese el divisor: "))
+    contador=int(0)
+    dividendo=dividendo-divisor
+    while dividendo >= 0:
+        contador=contador+1
+        dividendo=dividendo-divisor
+    print("El numero es, ", contador)
+ejercicio9()
